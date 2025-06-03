@@ -10,6 +10,13 @@ contract TodoList {
     }
 
     mapping(uint => Task) public tasks; //get the whole content of the task using the id
+
+
+    event TaskCreated(
+        uint id,
+        string content, 
+        bool completed
+    );
     
     constructor() public {
         createTask("Check out fuzzsjakk.com"); //Make a default task
@@ -18,6 +25,7 @@ contract TodoList {
     function createTask(string memory _content) public {
         taskCount ++;
         tasks[taskCount] = Task(taskCount, _content, false); //Make a new task in the dct/mapping
+        emit TaskCreated(taskCount, _content, false);
     }
 
 }
