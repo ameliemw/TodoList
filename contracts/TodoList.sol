@@ -12,15 +12,13 @@ contract TodoList {
     mapping(uint => Task) public tasks; //get the whole content of the task using the id
     
     constructor() public {
-        createTask("Check out fuzzsjakk.no"); //Make a default task
+        createTask("Check out fuzzsjakk.com"); //Make a default task
     }
     
     function createTask(string memory _content) public {
         taskCount ++;
         tasks[taskCount] = Task(taskCount, _content, false); //Make a new task in the dct/mapping
     }
-
-
 
 }
 
